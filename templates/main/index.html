@@ -1,0 +1,125 @@
+{% extends 'main/base.html' %}
+{% block title %} Bosh sahifa {% endblock title %}
+
+
+{% block content %}
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f7fc;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: none;
+        }
+        .table th {
+            background: #007bff;
+            color: white;
+            text-align: center;
+        }
+        .table td {
+            vertical-align: middle;
+        }
+        .table a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 500;
+        }
+        .table a:hover {
+            text-decoration: underline;
+        }
+        .header-icons i {
+            font-size: 16px;
+            color: #007bff;
+            margin-right: 10px;
+        }
+        .header-icons .fa-print {
+            cursor: pointer;
+        }
+    </style>
+<div class="container mt-5">
+        <div class="card">
+            <div class="d-flex justify-content-between align-items-center mb-3 header-icons">
+                <div>
+                    <i class="fas fa-calendar-alt"></i> 2024-02-18 14:03:50
+                    <i class="fas fa-eye ms-3"></i> 9894
+                </div>
+                <i class="fas fa-print"></i>
+            </div>
+            <h3 class="text-primary">Xalqaro hamkor tashkilotlar</h3>
+
+            <table class="table table-hover mt-3">
+                <thead>
+                    <tr>
+                        <th>Angliya</th>
+                        <th>England</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#">Norvich til ta’limi instituti</a></td>
+                        <td><a href="#">Norwich Institute of Language Education</a></td>
+                    </tr>
+                    <tr>
+                        <td>Aston Photonics Texnologiya Universiteti</td>
+                        <td>Aston Photonics University of Technology</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Cambridge Universiteti</a></td>
+                        <td><a href="#">University of Cambridge</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">28 ta OTM World University Rankings</a></td>
+                        <td><a href="#">28 HEI World University Rankings</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Reading universiteti tadqiqotchisi</a></td>
+                        <td><a href="#">Research Fellow at the University of Reading</a></td>
+                    </tr>
+                    <tr>
+                        <td>London Imperial kolleji</td>
+                        <td>London Imperial kolleji</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover mt-3">
+                <thead>
+                    <tr>
+                        <th>AQSH</th>
+                        <th>USA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                          <tr>
+                        <td><a href="#">Norvich til ta’limi instituti</a></td>
+                        <td><a href="#">Norwich Institute of Language Education</a></td>
+                    </tr>
+                    <tr>
+                        <td>Aston Photonics Texnologiya Universiteti</td>
+                        <td>Aston Photonics University of Technology</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Cambridge Universiteti</a></td>
+                        <td><a href="#">University of Cambridge</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">28 ta OTM World University Rankings</a></td>
+                        <td><a href="#">28 HEI World University Rankings</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">Reading universiteti tadqiqotchisi</a></td>
+                        <td><a href="#">Research Fellow at the University of Reading</a></td>
+                    </tr>
+                    <tr>
+                        <td>London Imperial kolleji</td>
+                        <td>London Imperial kolleji</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
