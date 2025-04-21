@@ -3,144 +3,121 @@
 
 
 {% block content %}
-<style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #f4f7fc;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            border: none;
-        }
-        .table th {
-            background: #007bff;
-            color: white;
-            text-align: center;
-        }
-        table thead th{
-            border-right: 5px solid #fff;
-        }
-        .table td {
-            vertical-align: middle;
-        }
-        .table a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: 500;
-        }
-        .table a:hover {
-            text-decoration: underline;
-        }
-        .header-icons i {
-            font-size: 16px;
-            color: #007bff;
-            margin-right: 10px;
-        }
-        .header-icons .fa-print {
-            cursor: pointer;
-        }
-        .date-container{
-                display: flex;
-                flex-direction: row;
-                column-gap: 20px;
-                position: relative;
-            }
-        @media only screen and (max-width: 400px){
-            .date-container{
-                display: flex;
-                flex-direction: column;
-                position: relative;
-            }
-        }
-    </style>
-<div class="container mt-5">
-        <div class="card">
-            <div class="d-flex justify-content-between align-items-center mb-3 header-icons">
-                <div class="date-container">
-                    <div>
-                    <i class="fas fa-calendar-alt"></i> 2024-02-18 14:03:50
-                    </div>
-                    <div>
-                    <i class="fas fa-eye align-items-center"></i>9894
+        <div class="content-img"> </div>
+        <div class="container">
+             <section class="education-stats">
+                  <h3 class="section-title"> O'zbekistonda ta'lim <span class="highlight">raqamlarda</span> </h3>
+
+                  <div class="stats-cards">
+
+                    <div class="stat-card">
+                      <div class="icon-box">
+                        <i class="fas fa-university"></i>
+                      </div>
+                      <h4>OLIY TA'LIM MUASSASALARI</h4>
+                      <div class="number">206</div>
+                      <p>Veb portaldagi oliy ta'lim tashkilotlar soni</p>
                     </div>
 
-                </div>
-                <i class="fas fa-print"></i>
-            </div>
-            <h3 class="text-primary">Xalqaro hamkor tashkilotlar</h3>
+                    <div class="stat-card">
+                      <div class="icon-box">
+                        <i class="fas fa-user-graduate"></i>
+                      </div>
+                      <h4>O'ZBEKISTONDAGI XORIJIY TALABALAR SONI</h4>
+                      <div class="number">34 760</div>
+                      <p>O'zbekiston ta'lim olayotgan jami xorijiy talabalar soni</p>
+                    </div>
 
-            <table class="table table-hover mt-3">
-                <thead>
-                    <tr>
-                        <th>Angliya</th>
-                        <th>England</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="#">Norvich til ta’limi instituti</a></td>
-                        <td><a href="#">Norwich Institute of Language Education</a></td>
-                    </tr>
-                    <tr>
-                        <td>Aston Photonics Texnologiya Universiteti</td>
-                        <td>Aston Photonics University of Technology</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Cambridge Universiteti</a></td>
-                        <td><a href="#">University of Cambridge</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">28 ta OTM World University Rankings</a></td>
-                        <td><a href="#">28 HEI World University Rankings</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Reading universiteti tadqiqotchisi</a></td>
-                        <td><a href="#">Research Fellow at the University of Reading</a></td>
-                    </tr>
-                    <tr>
-                        <td>London Imperial kolleji</td>
-                        <td>London Imperial kolleji</td>
-                    </tr>
-                </tbody>
-            </table>
+                    <div class="stat-card">
+                      <div class="icon-box">
+                        <i class="fas fa-chart-bar"></i>
+                      </div>
+                      <h4>TA'LIM DASTURLARI</h4>
+                      <div class="number">3 390</div>
+                      <p>Veb-portaldagi ta'lim dasturlari soni</p>
+                    </div>
 
-            <table class="table table-hover mt-3">
-                <thead>
-                    <tr>
-                        <th>AQSH</th>
-                        <th>USA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                          <tr>
-                        <td><a href="#">Norvich til ta’limi instituti</a></td>
-                        <td><a href="#">Norwich Institute of Language Education</a></td>
-                    </tr>
-                    <tr>
-                        <td>Aston Photonics Texnologiya Universiteti</td>
-                        <td>Aston Photonics University of Technology</td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Cambridge Universiteti</a></td>
-                        <td><a href="#">University of Cambridge</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">28 ta OTM World University Rankings</a></td>
-                        <td><a href="#">28 HEI World University Rankings</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">Reading universiteti tadqiqotchisi</a></td>
-                        <td><a href="#">Research Fellow at the University of Reading</a></td>
-                    </tr>
-                    <tr>
-                        <td>London Imperial kolleji</td>
-                        <td>London Imperial kolleji</td>
-                    </tr>
-                </tbody>
-            </table>
+                  </div>
+              </section>
+ </div>
+
+
+ <div class="abovt">
+    <div class="container">
+      <div class="abovt-start">
+        <div class="abovt-text">
+          <h4>O'zbekiston haqida</h4>
+          <p>
+            O'zbekiston haqida qiziqarli ma'lumotlar. Markaziy Osiyo yuragida joylashgan
+            O‘zbekiston Respublikasi o‘zining ko‘plab meʼmoriy yodgorliklari, tabiiy
+            landshaftlari, saroylari, sivilizatsiya merosi, madaniy tadbirlari, gastronomik
+            zavqlari va hunarmandchilik ustaxonalari bilan mashhur. Birinchi tashrifingizdan
+            mamlakatimiz sizda yana va yana bu yerga kelishga undaydigan tuyg‘ularni uyg‘otadi.
+          </p>
+          <div class="abovt-button">
+            <button>Batafsil</button>
+          </div>
         </div>
+
+        <div class="abovt-video">
+          <iframe
+            src="https://www.youtube.com/embed/JpEOyXGGi8I"
+            title="Study in Uzbekistan"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="container">
+    <div class="step">
+        <div class="step">
+            <h3 class="section-title"> O‘qishga qabul qilish uchun 5 qadamx </h3>
+
+           <div class="cards">
+            <div class="levl">
+                <h4>Ta’lim dasturini va  <br>universitetni tanlang</h4>
+                <div class="card-text">
+                    <p>01</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="levl">
+                <div class="card-text">
+                    <p>02</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <h4>Universitetga onlayn ariza yuboring</h4>
+            </div>
+            <div class="levl">
+                <h4>Talab etilgan hujjatlarni yuboring</h4>
+                <div class="card-text">
+                    <p>03</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+            <div class="levl">
+                <div class="card-text">
+                    <p>04</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+                <h4>Belgilangan tartibda suhbatda ishtirok eting</h4>
+            </div>
+            <div class="levl">
+                <h4>TQabul qilishni rasmiylashtirish va to‘lovni amalga</h4>
+                <div class="card-text">
+                    <p>05</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </div>
+           </div>
+
+
+        </div>
+
+
+    </div>
+  </div>
 {% endblock content %}

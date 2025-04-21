@@ -19,12 +19,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import handler404
-from main.views import custom_404
 from django.urls import re_path
 from django.views.static import serve
+from main.views import ApplicationChangeView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('admin/main/application/<int:id>/change/', ApplicationChangeView.as_view(),
+         name='main_application_change'),
     path('', include('main.urls')),
 ]
 
@@ -38,4 +40,4 @@ else:
     ]
 
 
-handler404 = custom_404
+handler404 = 'main.views.custom_404_view'

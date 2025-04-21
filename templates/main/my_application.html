@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% block title %} My Application {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="cards-applicat">
+
+  {% for application_data in application_issues %}
+
+    <div class="card">
+        {% if application_data.application.application.status == 'rejected' %}
+        <div class="card-rejected">
+            {{ application_data.application.application.status }}
+        </div>
+        {% else %}
+           <div class="card-headers">
+            {{ application_data.application.application.status }}
+           </div>
+        {% endif %}
+      <div class="card-bodys">
+        {% if application_data.application.user.middle_name %}
+            <h5 class="card-titles">{{ application_data.application.user.first_name }} {{ application_data.application.user.last_name }} {{ application_data.user.middle_name }}</h5>
+        {% else %}
+            <h5 class="card-titles">{{ application_data.user.first_name }} {{ application_data.user.last_name }} </h5>
+        {% endif %}
+          {% if application_data.issues %}
+          <strong>Ushbu Sizning arizangizda :
+              <b>{{ application_data.application.application.programme }}</b>
+              <b>{{ application_data.application.application.faculty.faculty_name }}</b>
+              Ushbu hatolik bo'lgan
+          </strong>
+       <p class="card-texts">{{ application_data.issues.message }}</p> <!-- bu yerda arizada kamchilik lar haqidagi malumot lar chiqadi-->
+          {% else %}
+          {% endif %}
+
+      </div>
+    </div>
+  {% empty %}
+              <h5 style="text-align:center;">Ariza mavjud emas!</h5>
+  {% endfor %}
+    </div>
+
+
+    </div>
+
+
+{% endblock content %}

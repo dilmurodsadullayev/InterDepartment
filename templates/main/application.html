@@ -1,0 +1,211 @@
+{% extends 'main/base.html' %}
+{% block title %}UBTUIT - Create Application{% endblock title %}
+
+{% block content %}
+
+<main>
+    <section style="margin-top: 100px;" class="content">
+        <h1>Create Application</h1>
+        <form id="applicationForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Programme and Faculty -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="programme">Programme</label>
+                    <select id="programme" name="programme" required>
+                        <option value="">--Select--</option>
+                        {% for programme in programmes %}
+                        <option value="{{ programme.id }}">{{ programme.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="faculty">Faculty</label>
+                    <select id="faculty" name="faculty" required>
+                        <option value="">--Select--</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="passport-number">Passport Number</label>
+                    <input type="text" id="passport-number" name="passport_serial" placeholder="Passport Number"
+                           required>
+                    {% if form.passport_serial.errors %}
+                    <ul class="error-list">
+                        {% for error in form.passport_serial.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+
+            </div>
+
+            <!-- File Uploads -->
+            <div class="form-row uploads">
+                <div class="form-group upload">
+                    <label>Passport</label>
+                    <div class="upload-box">
+                        <input type="file" id="passport" name="passport" accept=".pdf,.jpg,.png" required>
+                        <span class="upload-icon">+</span>
+                        {% if form.passport.errors %}
+                        <ul class="error-list">
+                            {% for error in form.passport.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+
+                </div>
+
+                <div class="form-group upload">
+                    <label>Diploma Transcript</label>
+                    <div class="upload-box">
+                        <input type="file" id="diploma-transcript" name="diploma_transcript" accept=".pdf,.jpg,.png"
+                               required>
+                        <span class="upload-icon">+</span>
+                        {% if form.diploma_transcript.errors %}
+                        <ul class="error-list">
+                            {% for error in form.diploma_transcript.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group upload">
+                    <label>Diploma Copy</label>
+                    <div class="upload-box">
+                        <input type="file" id="diploma-copy" name="diploma_copy" accept=".pdf,.jpg,.png" required>
+                        <span class="upload-icon">+</span>
+                        {% if form.diploma_copy.errors %}
+                        <ul class="error-list">
+                            {% for error in form.diploma_copy.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group upload">
+                    <label>Photo</label>
+                    <div class="upload-box">
+                        <input type="file" id="photo" name="image" accept=".jpg,.png" required>
+                        <span class="upload-icon">+</span>
+                        {% if form.image.errors %}
+                        <ul class="error-list">
+                            {% for error in form.image.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="form-group upload">
+                    <label>Certificate</label>
+                    <div class="upload-box">
+                        <input type="file" id="certificate" name="certificate" accept=".pdf,.jpg,.png">
+                        <span class="upload-icon">+</span>
+                        {% if form.certificate.errors %}
+                        <ul class="error-list">
+                            {% for error in form.certificate.errors %}
+                            <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            {% if request.user.is_authenticated %}
+                <button id="submitBtn" type="submit" class="btn primary">Save</button>
+            {% else %}
+                <h5 style="text-align:center; color:red;">Ariza yuborish uchun ro'yxatdan o'tishingiz kerak!</h5>
+            {% endif %}
+        </form>
+
+        <!-- Spinner ko‘rinishi, form yuborilayotganda chiqadi -->
+        <div id="formSpinner" class="text-center mt-3" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Yuklanmoqda...</span>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#programme').change(function () {
+        var programmeId = $(this).val();
+
+        $('#faculty').empty().append('<option value="">--Select--</option>');
+
+        if (programmeId) {
+            $.ajax({
+                url: '{% url "get_faculties" %}',
+                data: {
+                    'programme_id': programmeId
+
+                },
+                success: function (data) {
+                    data.forEach(function (faculty) {
+                        $('#faculty').append(
+                            `<option value="${faculty.id}">${faculty.faculty_name}</option>`
+                        );
+                    });
+                }
+            });
+        }
+    });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const spinner = document.getElementById('formSpinner');
+    const submitButton = document.getElementById('submitBtn');
+
+    if (form && submitButton) {
+        form.addEventListener('submit', function (event) {
+            // Agar submit button allaqachon bosilgan bo‘lsa, hech narsa qilinmaydi
+            if (submitButton.disabled) {
+                return;
+            }
+
+            event.preventDefault(); // Formani hozircha yuborishni to'xtatish
+
+            // Spinnerni ko‘rsatish
+            if (spinner) {
+                spinner.style.display = 'block';
+            }
+
+            // Tugmani bloklash va matnini o‘zgartirish
+            submitButton.disabled = true;
+            submitButton.textContent = 'Ariza yuborilmoqda...';
+
+            // 1 soniyadan keyin formani yuborish
+            setTimeout(() => {
+                form.submit();
+            }, 1000);
+        });
+    }
+});
+
+
+
+</script>
+
+<script>
+</script>
+
+
+{% endblock content %}

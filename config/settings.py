@@ -26,7 +26,8 @@ load_dotenv()
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = bool(os.getenv("DEBUG"))
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '*'
@@ -71,7 +72,7 @@ TEMPLATES = [
         },
     },
 ]
-
+AUTH_USER_MODEL = 'main.CustomUser'
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -136,3 +137,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/signin/'  # Kirish sahifangiz URL-manzilini ko‘rsating
+
+LOGIN_REDIRECT_URL = 'home'  # Login qilgandan keyin qayta yo'naltirish uchun URL
+LOGOUT_REDIRECT_URL = 'home'  #
