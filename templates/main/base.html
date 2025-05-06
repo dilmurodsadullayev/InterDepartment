@@ -30,10 +30,9 @@
                         <li>{{ request.user.username }}</li>
                     {% else %}
                     {% endif %}
-                    <li><a href="news.html">Why Uzbekistan?</a></li>
-                    <li><a href="#">Universites</a></li>
-                    <li><a href="#">Programms</a></li>
-                    <li><a href="#">Study in Uzbekistan</a></li>
+                    <li><a href="news.html">Why Ubtuit?</a></li>
+                    <li><a href="#">Faculty</a></li>
+                    <li><a href="#">Programmed</a></li>
                     <li><a href="{% url 'my_application' %}">My Application</a></li>
                     <li><a href="#"><img src="search.svg" alt=""></a></li>
                     <li> <div class="language-select">
@@ -53,6 +52,7 @@
                             </li>
                           </ul>
                       </div>
+
 
                     </li>
                     {% if request.user.is_authenticated %}

@@ -41,3 +41,5 @@ const langSelect = document.querySelector('.language-select');
     navMenu.classList.toggle('active');
     hamburger.classList.toggle('open');
   });
+
+

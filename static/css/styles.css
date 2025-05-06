@@ -40,6 +40,7 @@ header {
     background: white;
     position: fixed;
     width: 100%;
+  top: 0 !important;
     z-index: 999;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -511,15 +512,15 @@ nav ul li a:hover {
     display: flex;
   }
 }
-.content-img {
-  width: 100%;
-  height: 100vh;
-    background: url("../imgs/photos/studyiii777.png") no-repeat center center / cover;
+/*.content-img {*/
+/*  width: 100%;*/
+/*  height: 100vh;*/
+/*    background: url("../imgs/photos/studyiii777.png") no-repeat center center / cover;*/
 
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+/*  top: 0;*/
+/*  left: 0;*/
+/*  z-index: -1;*/
+/*}*/
 
 .section-title {
   text-align: center;
@@ -673,8 +674,6 @@ top: 10px;
 }
 
 
-//
-/* General Card Styling */
 .card {
   max-width: 420px;
   margin: 40px auto;
@@ -872,4 +871,135 @@ justify-content:space-between !important;}
 
 .btn-dangers:hover {
   background-color: #d93025;
+}
+
+
+.carousel-container {
+    position: relative; /* For positioning buttons/nav */
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Nicer edges */
+    margin-top: 100px;
+}
+
+.carousel-viewport {
+    overflow: hidden; /* Crucial: Hides slides outside the viewport */
+    width: 100%;
+    border-radius: 8px; /* Match container */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+    height: 400px; /* Set a fixed height for the banner */
+}
+
+.carousel-slide {
+    flex: 0 0 100%; /* Each slide takes full viewport width */
+    width: 100%;
+    position: relative; /* For positioning slide content */
+    background-size: cover; /* Scale bg image nicely */
+    background-position: center center;
+    display: flex; /* For aligning slide content */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    color: white; /* Default text color for dark images */
+    text-align: center;
+    height: 100%; /* Ensure slide fills track height */
+}
+
+.carousel-slide::before { /* Optional overlay for text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+    z-index: 1;
+}
+
+.slide-content {
+    position: relative; /* Ensure content is above overlay */
+    z-index: 2;
+    padding: 20px;
+    max-width: 80%; /* Prevent text stretching too wide */
+}
+
+.slide-content h2 {
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.slide-content p {
+    font-size: 1.2em;
+     text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+/* Style for light backgrounds if needed */
+.slide-content.text-dark,
+.slide-content.text-dark h2,
+.slide-content.text-dark p {
+    color: #333; /* Dark text */
+    text-shadow: none; /* Remove shadow on dark text */
+}
+
+
+/* Carousel Buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10; /* Above slides and overlay */
+    border-radius: 50%; /* Circular buttons */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+    left: 15px;
+}
+
+.carousel-button.next {
+    right: 15px;
+}
+
+/* Carousel Navigation Dots */
+.carousel-nav {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px; /* Space between dots */
+    z-index: 10; /* Above slides */
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: white; /* Solid white for active */
+    transform: scale(1.2); /* Slightly larger active dot */
 }
